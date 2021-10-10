@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="radio"] + img {
+    @apply border-4 border-transparent
+}
+
+input[type="radio"]:checked + img {
+    @apply border-indigo-600
+}
