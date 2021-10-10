@@ -28,7 +28,7 @@ Once the Docker container is running and the assets are compiled, you can visit
 ### Usage
 
 Once you visit the site, you will be prompted to create a profile. Once you have
-created a least one profile, you can go back to the dashboard where you'll select
+created at least one profile, you can go back to the dashboard where you'll select
 a profile to use. You can switch profiles from the dashboard at any time by clicking
 the "switch" link next to your profile photo. You will also need to create chores
 (there is a link to the list of chores saved in the system in the top right of the
