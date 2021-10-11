@@ -16,11 +16,23 @@ class DashboardController extends Controller
             'your_chores' => ChoreTask::with('chore')
                 ->where('profile_id', $profile->id)
                 ->whereNull('completed_at')
-                ->get(),
+                ->get()
+                ->map(fn ($task) => [
+                    'id' => $task->id,
+                    'photo' => $task->chore->photo,
+                    'title' => $task->chore->title,
+                    'points' => $task->chore->points,
+                ]),
             'available_chores' => ChoreTask::with('chore')
                 ->whereNull('profile_id')
                 ->whereNull('completed_at')
-                ->get(),
+                ->get()
+                ->map(fn ($task) => [
+                    'id' => $task->id,
+                    'photo' => $task->chore->photo,
+                    'title' => $task->chore->title,
+                    'points' => $task->chore->points,
+                ]),
         ]);
     }
 }

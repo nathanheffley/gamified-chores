@@ -12,7 +12,6 @@ Route::redirect('/', '/login');
 
 Route::get('/login', [LoginController::class, 'select'])
     ->name('profiles.select');
-
 Route::get('/login/{profile}', [LoginController::class, 'login'])
     ->name('profiles.login');
 

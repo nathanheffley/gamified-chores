@@ -46,20 +46,20 @@
                 <div>
                     <div class="w-64 aspect-w-16 aspect-h-9">
                         <img
-                            src="/storage/{{ $task->chore->photo }}"
+                            src="/storage/{{ $task['photo'] }}"
                             alt=""
                             class="w-full h-full object-center object-cover rounded"
                         />
                     </div>
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="mt-2 block text-gray-900 font-semibold">{{ $task->chore->title }}</span>
-                            <span class="block text-gray-600">{{ $task->chore->points }} points</span>
+                            <span class="mt-2 block text-gray-900 font-semibold">{{ $task['title'] }}</span>
+                            <span class="block text-gray-600">{{ $task['points'] }} points</span>
                         </div>
 
                         <form
                             method="POST"
-                            action="{{ route('task.complete', $task) }}"
+                            action="{{ route('task.complete', $task['id']) }}"
                         >
                             @csrf
                             <button type="submit">
@@ -89,20 +89,20 @@
                 <div>
                     <div class="w-64 aspect-w-16 aspect-h-9">
                         <img
-                            src="/storage/{{ $task->chore->photo }}"
+                            src="/storage/{{ $task['photo'] }}"
                             alt=""
                             class="w-full h-full object-center object-cover rounded"
                         />
                     </div>
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="mt-2 block text-gray-900 font-semibold">{{ $task->chore->title }}</span>
-                            <span class="block text-gray-600">{{ $task->chore->points }} points</span>
+                            <span class="mt-2 block text-gray-900 font-semibold">{{ $task['title'] }}</span>
+                            <span class="block text-gray-600">{{ $task['points'] }} points</span>
                         </div>
 
                         <form
                             method="POST"
-                            action="{{ route('task.claim', $task) }}"
+                            action="{{ route('task.claim', $task['id']) }}"
                         >
                             @csrf
                             <button type="submit">

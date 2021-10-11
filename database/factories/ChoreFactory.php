@@ -22,7 +22,9 @@ class ChoreFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'points' => $this->faker->randomNumber(2),
+            'photo' => $this->faker->imageUrl(),
         ];
     }
 }

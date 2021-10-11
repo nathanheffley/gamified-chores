@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Chore;
 use App\Models\ChoreTask;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,7 @@ class ChoreTaskFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'chore_id' => Chore::factory(),
         ];
     }
 }

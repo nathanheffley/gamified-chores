@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chore;
 use App\Models\ChoreTask;
 use App\Models\Profile;
+use Exception;
 use Illuminate\Http\Request;
 
 class ChoreTaskController extends Controller
@@ -19,7 +20,7 @@ class ChoreTaskController extends Controller
     public function claim(Request $request, ChoreTask $choreTask)
     {
         if ($choreTask->profile_id !== null) {
-            throw new \Exception('This chore has already been claimed!');
+            throw new Exception('This chore has already been claimed!');
         }
 
         $choreTask->profile_id = $request->session()->get('profile');
@@ -32,11 +33,11 @@ class ChoreTaskController extends Controller
     public function complete(Request $request, ChoreTask $choreTask)
     {
         if ($choreTask->profile_id === null) {
-            throw new \Exception('This chore has not been claimed yet!');
+            throw new Exception('This chore has not been claimed yet!');
         }
 
         if ($choreTask->completed_at !== null) {
-            throw new \Exception('This chore has already been completed!');
+            throw new Exception('This chore has already been completed!');
         }
 
         $profile = Profile::query()->findOrFail($request->session()->get('profile'));
