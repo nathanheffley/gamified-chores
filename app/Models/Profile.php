@@ -14,6 +14,10 @@ class Profile extends Model
         'photo',
     ];
 
+    protected $casts = [
+        'points' => 'int',
+    ];
+
     public const PHOTO_OPTIONS = [
         'Happy',
         'Sad',

@@ -10,8 +10,18 @@ class ChoreTask extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'completed_at' => 'datetime',
+        'approved_at' => 'datetime',
+    ];
+
     public function chore(): BelongsTo
     {
         return $this->belongsTo(Chore::class);
+    }
+
+    public function profile(): BelongsTo
+    {
+        return $this->belongsTo(Profile::class);
     }
 }

@@ -49,4 +49,42 @@ class ChoreTaskController extends Controller
 
         return redirect('dashboard');
     }
+
+    public function approve(ChoreTask $choreTask)
+    {
+        $choreTask->approved_at = now();
+        $choreTask->save();
+
+        return redirect('review');
+    }
+
+    public function reject(ChoreTask $choreTask)
+    {
+        $choreTask->completed_at = null;
+        $choreTask->save();
+
+        $profile = $choreTask->profile;
+        $profile->points -= $choreTask->chore->points;
+        $profile->save();
+
+        return redirect('review');
+    }
+
+    public function review()
+    {
+        return view('review', [
+            'tasks' => ChoreTask::with('chore', 'profile')
+                ->whereNotNull('completed_at')
+                ->whereNull('approved_at')
+                ->get()
+                ->map(fn ($task) => [
+                    'id' => $task->id,
+                    'photo' => $task->chore->photo,
+                    'title' => $task->chore->title,
+                    'points' => $task->chore->points,
+                    'name' => $task->profile->name,
+                    'completed_at' => $task->completed_at->diffForHumans(),
+                ]),
+        ]);
+    }
 }

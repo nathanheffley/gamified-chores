@@ -37,3 +37,10 @@ Route::resource('profiles', ProfileController::class)
 
 Route::resource('chores', ChoreController::class)
     ->only('index', 'create', 'store');
+
+Route::get('review', [ChoreTaskController::class, 'review'])
+    ->name('review.show');
+Route::post('review/approve/{choreTask}', [ChoreTaskController::class, 'approve'])
+    ->name('review.approve');
+Route::post('review/reject/{choreTask}', [ChoreTaskController::class, 'reject'])
+    ->name('review.reject');

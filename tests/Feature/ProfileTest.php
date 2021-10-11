@@ -42,6 +42,8 @@ class ProfileTest extends TestCase
 
     public function test_profile_cannot_be_created_without_a_name()
     {
+        $this->withExceptionHandling();
+
         $response = $this->post(route('profiles.store'), [
             'photo' => 'Surprised',
         ]);
@@ -53,6 +55,8 @@ class ProfileTest extends TestCase
 
     public function test_profile_cannot_be_created_with_non_string_name()
     {
+        $this->withExceptionHandling();
+
         $response = $this->post(route('profiles.store'), [
             'name' => 42,
             'photo' => 'Happy',
@@ -65,6 +69,8 @@ class ProfileTest extends TestCase
 
     public function test_profile_cannot_be_created_without_a_photo()
     {
+        $this->withExceptionHandling();
+
         $response = $this->post(route('profiles.store'), [
             'name' => 'Nathan',
         ]);
@@ -76,6 +82,8 @@ class ProfileTest extends TestCase
 
     public function test_profile_cannot_be_created_with_invalid_photo()
     {
+        $this->withExceptionHandling();
+
         $response = $this->post(route('profiles.store'), [
             'name' => 'Jonathan',
             'photo' => 'Not A Photo',

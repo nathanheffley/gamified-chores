@@ -1,5 +1,5 @@
 <x-layout>
-    <nav class="p-4 flex items-center">
+    <nav class="p-4 md:px-8 flex items-center">
         <img
             src="{{ $profile->photo_path }}"
             alt=""
@@ -34,6 +34,9 @@
             <a href="{{ route('chores.index') }}" class="ml-4">
                 Chores
             </a>
+            <a href="{{ route('review.show') }}" class="ml-4">
+                Review
+            </a>
         </div>
     </nav>
 
@@ -64,7 +67,8 @@
                             @csrf
                             <button type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-indigo-500 focus:text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                 </svg>
                             </button>
                         </form>

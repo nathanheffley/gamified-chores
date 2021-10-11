@@ -21,6 +21,7 @@ class CreateChoreTasksTable extends Migration
             $table->foreignIdFor(Profile::class)->nullable();
             $table->timestamps();
             $table->timestamp('completed_at')->nullable();
+            $table->timestamp('approved_at')->nullable();
         });
     }
 
