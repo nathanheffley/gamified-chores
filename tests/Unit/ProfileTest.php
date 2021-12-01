@@ -19,9 +19,9 @@ class ProfileTest extends TestCase
     public function photoPathAttributeProvider()
     {
         return [
-            ['Happy', '/imgs/profiles/happy.png'],
-            ['Sad', '/imgs/profiles/sad.png'],
-            ['Surprised', '/imgs/profiles/surprised.png'],
+            ['Happy', '/imgs/profiles/Happy.png'],
+            ['Sad', '/imgs/profiles/Sad.png'],
+            ['Surprised', '/imgs/profiles/Surprised.png'],
         ];
     }
 }

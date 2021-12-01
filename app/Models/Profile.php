@@ -23,6 +23,6 @@ class Profile extends Model
 
     public function getPhotoPathAttribute(): string
     {
-        return '/imgs/profiles/' . strtolower($this->photo) . '.png';
+        return '/imgs/profiles/' . $this->photo . '.png';
     }
 }
