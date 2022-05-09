@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChoreController;
 use App\Http\Controllers\ChoreTaskController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
@@ -38,3 +39,5 @@ Route::resource('profiles', ProfileController::class)
 
 Route::resource('chores', ChoreController::class)
     ->only('index', 'create', 'store');
+
+Route::get('history', HistoryController::class);

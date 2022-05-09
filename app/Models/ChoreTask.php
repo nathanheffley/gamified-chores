@@ -14,4 +14,9 @@ class ChoreTask extends Model
     {
         return $this->belongsTo(Chore::class);
     }
+
+    public function profile(): BelongsTo
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }
